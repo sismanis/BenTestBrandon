@@ -15,6 +15,7 @@ class ChatStackViewController: UIViewController, UITextViewDelegate {
         static let placeholderText = "Type a message..."
         static let leaderboardViewMinimumHeight: CGFloat = 40.0
         static let leaderboardViewPreviewHeight: CGFloat = 150.0
+        static let inputViewBorderWidth = 1
     }
     
     @IBOutlet weak var chatStackView: UIStackView!
@@ -40,14 +41,24 @@ class ChatStackViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
-        textView.textColor = UIColor.lightGray
+        
+        textView.textColor = .lightGray
         textView.text = Constants.placeholderText
+        textView.delegate = self
+        
         sendButton.isEnabled = false
         sendButton.setTitleColor(.lightGray, for: .disabled)
+        
         chatTableView.separatorStyle = .none
         chatTableViewController.tableView = chatTableView
-        textView.delegate = self
+        
+        let inputViewBorder = UIView(frame: CGRect(x: 0, y: 0, width: Int(chatInputView.frame.width), height: Constants.inputViewBorderWidth))
+        inputViewBorder.backgroundColor = .lightGray
+        inputViewBorder.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin]
+        chatInputView.addSubview(inputViewBorder)
+        
     }
     
     @IBAction func sendButtonPressed(_ sender: Any) {

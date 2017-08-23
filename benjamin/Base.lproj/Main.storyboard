@@ -44,14 +44,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="27D-xB-Xnw" userLabel="Chat View">
                                         <rect key="frame" x="0.0" y="150" width="375" height="467"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat-header" translatesAutoresizingMaskIntoConstraints="NO" id="nnB-hU-g63">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="10"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat-header" translatesAutoresizingMaskIntoConstraints="NO" id="nnB-hU-g63">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="10" id="v6v-ZZ-2fp"/>
+                                                    <constraint firstAttribute="height" constant="20" id="v6v-ZZ-2fp"/>
                                                 </constraints>
                                             </imageView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sbI-yh-q4o" userLabel="Chat Table View">
-                                                <rect key="frame" x="0.0" y="10" width="375" height="457"/>
+                                                <rect key="frame" x="0.0" y="20" width="375" height="447"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ChatTableViewCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChatTableViewCell" id="zyf-rK-CxF" customClass="ChatTableViewCell" customModule="benjamin" customModuleProvider="target">
