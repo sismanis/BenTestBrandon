@@ -39,6 +39,16 @@
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sbI-yh-q4o" userLabel="Chat Table View">
                                                 <rect key="frame" x="0.0" y="10" width="375" height="507"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="b9F-D2-ZKG">
+                                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b9F-D2-ZKG" id="6sW-aI-YWW">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </tableViewCellContentView>
+                                                    </tableViewCell>
+                                                </prototypes>
                                             </tableView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -55,26 +65,28 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7MP-dF-7QL" userLabel="Text Input View">
                                         <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type a message..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="thF-p9-0Yp">
-                                                <rect key="frame" x="15" y="16.5" width="291" height="17"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIV-QG-m5e">
                                                 <rect key="frame" x="317" y="10" width="40" height="30"/>
                                                 <state key="normal" title="SEND">
-                                                    <color key="titleColor" red="0.74451505829015541" green="0.74451505829015541" blue="0.74451505829015541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="0.33414733409881592" green="0.60798132419586182" blue="0.64657413959503174" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                             </button>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type a message..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WDb-eB-pCn">
+                                                <rect key="frame" x="14" y="10" width="287" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="textColor" red="0.75536407294660157" green="0.77296869595568884" blue="0.9717907056289633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="93g-Pu-mIB"/>
+                                            <constraint firstItem="WDb-eB-pCn" firstAttribute="top" secondItem="7MP-dF-7QL" secondAttribute="top" constant="10" id="AAd-Fm-F79"/>
                                             <constraint firstAttribute="trailing" secondItem="gIV-QG-m5e" secondAttribute="trailing" constant="18" id="Ma8-iy-A8R"/>
-                                            <constraint firstItem="thF-p9-0Yp" firstAttribute="leading" secondItem="7MP-dF-7QL" secondAttribute="leading" constant="15" id="adT-JU-RTC"/>
-                                            <constraint firstItem="gIV-QG-m5e" firstAttribute="leading" secondItem="thF-p9-0Yp" secondAttribute="trailing" constant="11" id="jaA-S2-Zv4"/>
+                                            <constraint firstItem="WDb-eB-pCn" firstAttribute="leading" secondItem="7MP-dF-7QL" secondAttribute="leading" constant="14" id="Ojr-Hf-Lel"/>
+                                            <constraint firstAttribute="bottom" secondItem="WDb-eB-pCn" secondAttribute="bottom" constant="10" id="ckA-3j-bOp"/>
+                                            <constraint firstItem="gIV-QG-m5e" firstAttribute="leading" secondItem="WDb-eB-pCn" secondAttribute="trailing" constant="16" id="mS1-5B-XL7"/>
                                             <constraint firstItem="gIV-QG-m5e" firstAttribute="centerY" secondItem="7MP-dF-7QL" secondAttribute="centerY" id="tAI-cM-qF6"/>
-                                            <constraint firstItem="thF-p9-0Yp" firstAttribute="centerY" secondItem="7MP-dF-7QL" secondAttribute="centerY" id="tOK-Fl-VLC"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -102,10 +114,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="bottomConstraint" destination="ZVK-Ka-CfI" id="tPV-r4-LpT"/>
+                        <outlet property="chatInputView" destination="7MP-dF-7QL" id="00l-3P-OYX"/>
                         <outlet property="chatStackView" destination="667-8D-oWr" id="S1N-gA-d5M"/>
                         <outlet property="chatTableView" destination="sbI-yh-q4o" id="5FI-DQ-vNh"/>
                         <outlet property="leaderboardView" destination="ef2-Ov-Ltd" id="NWP-Nl-srl"/>
-                        <outlet property="textInputView" destination="7MP-dF-7QL" id="vzY-Mm-W85"/>
+                        <outlet property="sendButton" destination="gIV-QG-m5e" id="4Yy-gB-NfL"/>
+                        <outlet property="textView" destination="WDb-eB-pCn" id="rsc-zo-oA7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
