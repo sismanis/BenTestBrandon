@@ -13,9 +13,10 @@ class ChatStackViewController: UIViewController, UITextViewDelegate {
     
     struct Constants {
         static let placeholderText = "Type a message..."
-        static let leaderboardViewMinimumHeight: CGFloat = 40.0
+        static let leaderboardViewMinimumHeight: CGFloat = 60.0
         static let leaderboardViewPreviewHeight: CGFloat = 150.0
         static let inputViewBorderWidth = 1
+        static let pullTabViewCornerRadius: CGFloat = 20.0
     }
     
     @IBOutlet weak var chatStackView: UIStackView!
@@ -24,6 +25,7 @@ class ChatStackViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var chatInputView: UIView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var pullTabView: UIView!
     
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var leaderboardViewHeightConstraint: NSLayoutConstraint!
@@ -59,6 +61,11 @@ class ChatStackViewController: UIViewController, UITextViewDelegate {
         inputViewBorder.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin]
         chatInputView.addSubview(inputViewBorder)
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        pullTabView.roundCorners(corners: [.topLeft, .topRight], radius: Constants.pullTabViewCornerRadius)
     }
     
     @IBAction func sendButtonPressed(_ sender: Any) {

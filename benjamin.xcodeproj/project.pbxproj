@@ -15,6 +15,7 @@
 		CA09CB391F4D1EB7008D9630 /* ChatStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA09CB371F4D1C01008D9630 /* ChatStackViewController.swift */; };
 		CA09CB431F4D5DA0008D9630 /* ChatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA09CB421F4D5DA0008D9630 /* ChatTableViewController.swift */; };
 		CA09CB451F4DD0F6008D9630 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA09CB441F4DD0F6008D9630 /* ChatTableViewCell.swift */; };
+		CACFB7F61F4DDD6C0068478F /* UIView+RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACFB7F51F4DDD6C0068478F /* UIView+RoundedCorners.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CA09CB371F4D1C01008D9630 /* ChatStackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatStackViewController.swift; sourceTree = "<group>"; };
 		CA09CB421F4D5DA0008D9630 /* ChatTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewController.swift; sourceTree = "<group>"; };
 		CA09CB441F4DD0F6008D9630 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		CACFB7F51F4DDD6C0068478F /* UIView+RoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundedCorners.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				CA09CB371F4D1C01008D9630 /* ChatStackViewController.swift */,
 				CA09CB421F4D5DA0008D9630 /* ChatTableViewController.swift */,
 				CA09CB441F4DD0F6008D9630 /* ChatTableViewCell.swift */,
+				CACFB7F51F4DDD6C0068478F /* UIView+RoundedCorners.swift */,
 			);
 			path = benjamin;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 				CA09CB391F4D1EB7008D9630 /* ChatStackViewController.swift in Sources */,
 				CA09CB281F4D1B67008D9630 /* ViewController.swift in Sources */,
 				CA09CB451F4DD0F6008D9630 /* ChatTableViewCell.swift in Sources */,
+				CACFB7F61F4DDD6C0068478F /* UIView+RoundedCorners.swift in Sources */,
 				CA09CB261F4D1B67008D9630 /* AppDelegate.swift in Sources */,
 				CA09CB431F4D5DA0008D9630 /* ChatTableViewController.swift in Sources */,
 			);
