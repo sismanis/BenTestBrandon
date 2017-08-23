@@ -124,10 +124,10 @@
                                                     <action selector="sendButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QT2-LW-Pkz"/>
                                                 </connections>
                                             </button>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type a message..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WDb-eB-pCn">
-                                                <rect key="frame" x="14" y="10" width="287" height="30"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Type a message..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WDb-eB-pCn">
+                                                <rect key="frame" x="10" y="10" width="291" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <color key="textColor" red="0.75536407294660157" green="0.77296869595568884" blue="0.9717907056289633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -137,7 +137,7 @@
                                             <constraint firstAttribute="height" constant="50" id="93g-Pu-mIB"/>
                                             <constraint firstItem="WDb-eB-pCn" firstAttribute="top" secondItem="7MP-dF-7QL" secondAttribute="top" constant="10" id="AAd-Fm-F79"/>
                                             <constraint firstAttribute="trailing" secondItem="gIV-QG-m5e" secondAttribute="trailing" constant="18" id="Ma8-iy-A8R"/>
-                                            <constraint firstItem="WDb-eB-pCn" firstAttribute="leading" secondItem="7MP-dF-7QL" secondAttribute="leading" constant="14" id="Ojr-Hf-Lel"/>
+                                            <constraint firstItem="WDb-eB-pCn" firstAttribute="leading" secondItem="7MP-dF-7QL" secondAttribute="leading" constant="10" id="Ojr-Hf-Lel"/>
                                             <constraint firstAttribute="bottom" secondItem="WDb-eB-pCn" secondAttribute="bottom" constant="10" id="ckA-3j-bOp"/>
                                             <constraint firstItem="gIV-QG-m5e" firstAttribute="leading" secondItem="WDb-eB-pCn" secondAttribute="trailing" constant="16" id="mS1-5B-XL7"/>
                                             <constraint firstItem="gIV-QG-m5e" firstAttribute="centerY" secondItem="7MP-dF-7QL" secondAttribute="centerY" id="tAI-cM-qF6"/>

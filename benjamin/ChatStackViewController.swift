@@ -181,7 +181,6 @@ class ChatStackViewController: UIViewController, UITextViewDelegate {
         
         switch gestureRecognizer.state {
         case .began, .changed, .ended:
-            print(yTranslation)
             if  -yTranslation > Constants.inputViewPanThreshold {
                 textView.becomeFirstResponder()
             }
