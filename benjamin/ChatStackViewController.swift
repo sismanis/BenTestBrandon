@@ -45,11 +45,15 @@ class ChatStackViewController: UIViewController, UITextViewDelegate {
         textView.text = Constants.placeholderText
         sendButton.isEnabled = false
         sendButton.setTitleColor(.lightGray, for: .disabled)
+        chatTableView.separatorStyle = .none
         chatTableViewController.tableView = chatTableView
         textView.delegate = self
     }
     
-    
+    @IBAction func sendButtonPressed(_ sender: Any) {
+        chatTableViewController.insertMessage(message: textView.text)
+        textView.text = ""
+    }
     
     // MARK: UITextViewDelegate
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -65,11 +69,6 @@ class ChatStackViewController: UIViewController, UITextViewDelegate {
         } else {
             sendButton.isEnabled = false
         }
-    }
-    
-    @IBAction func sendButtonPressed(_ sender: Any) {
-        chatTableViewController.insertMessage(message: textView.text)
-        textView.text = ""
     }
     
     // MARK: NSNotification

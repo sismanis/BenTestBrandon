@@ -38,6 +38,7 @@
                                             <constraint firstItem="TSD-ei-M2R" firstAttribute="top" secondItem="ef2-Ov-Ltd" secondAttribute="top" constant="30" id="D1h-c6-H8M"/>
                                             <constraint firstItem="TSD-ei-M2R" firstAttribute="leading" secondItem="ef2-Ov-Ltd" secondAttribute="leading" constant="14" id="Xah-3C-qsU"/>
                                             <constraint firstAttribute="height" constant="150" id="can-1s-G5L"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TSD-ei-M2R" secondAttribute="trailing" id="zo3-vd-Gu5"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="27D-xB-Xnw" userLabel="Chat View">
@@ -53,13 +54,32 @@
                                                 <rect key="frame" x="0.0" y="10" width="375" height="457"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="b9F-D2-ZKG">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ChatTableViewCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChatTableViewCell" id="zyf-rK-CxF" customClass="ChatTableViewCell" customModule="benjamin" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b9F-D2-ZKG" id="6sW-aI-YWW">
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zyf-rK-CxF" id="c7v-Qp-Xz5">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" scrollEnabled="NO" editable="NO" text="Teach me about Bitcoin" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PPE-Ia-GM4">
+                                                                    <rect key="frame" x="199.5" y="5.5" width="161.5" height="33"/>
+                                                                    <color key="backgroundColor" red="0.0" green="0.47934520244598389" blue="0.99908632040023804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                </textView>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="PPE-Ia-GM4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c7v-Qp-Xz5" secondAttribute="leading" constant="14" id="JpG-3r-Kmz"/>
+                                                                <constraint firstAttribute="trailing" secondItem="PPE-Ia-GM4" secondAttribute="trailing" constant="14" id="Kqx-vS-vEQ"/>
+                                                                <constraint firstAttribute="bottom" secondItem="PPE-Ia-GM4" secondAttribute="bottom" constant="5" id="X5V-Dc-gcr"/>
+                                                                <constraint firstItem="PPE-Ia-GM4" firstAttribute="top" secondItem="c7v-Qp-Xz5" secondAttribute="top" constant="5" id="fru-Ax-dgY"/>
+                                                                <constraint firstItem="PPE-Ia-GM4" firstAttribute="centerY" secondItem="c7v-Qp-Xz5" secondAttribute="centerY" id="yCc-gF-qdh"/>
+                                                            </constraints>
                                                         </tableViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="textView" destination="PPE-Ia-GM4" id="bRQ-y9-Z8y"/>
+                                                        </connections>
                                                     </tableViewCell>
                                                 </prototypes>
                                             </tableView>

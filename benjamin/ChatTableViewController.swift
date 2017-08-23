@@ -13,6 +13,7 @@ class ChatTableViewController: UITableViewController {
     
     struct Constants {
         static let cellReuseIdentifier = "ChatTableViewCell"
+        static let chatBubbleCornerRadius = 10.0
     }
     
     var messages: [String]
@@ -38,8 +39,9 @@ class ChatTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: Constants.cellReuseIdentifier)
-        cell.textLabel?.text = messages[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellReuseIdentifier, for: indexPath) as! ChatTableViewCell
+        cell.textView.text = messages[indexPath.row]
+        cell.textView.layer.cornerRadius = Constants.chatBubbleCornerRadius
         return cell
     }
     
