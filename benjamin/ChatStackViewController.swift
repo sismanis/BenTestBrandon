@@ -18,6 +18,7 @@ class ChatStackViewController: UIViewController, UITextViewDelegate {
         static let inputViewBorderWidth = 1
         static let pullTabViewCornerRadius: CGFloat = 20.0
         static let pullTabPanThreshold: CGFloat = 50.0
+        static let inputViewPanThreshold: CGFloat = 20.0
         static let panAnimationInterval = TimeInterval(0.25)
     }
     
@@ -174,4 +175,18 @@ class ChatStackViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    @IBAction func inputViewPanGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
+        let inputView = gestureRecognizer.view?.superview
+        let yTranslation = gestureRecognizer.translation(in: inputView).y
+        
+        switch gestureRecognizer.state {
+        case .began, .changed, .ended:
+            print(yTranslation)
+            if  -yTranslation > Constants.inputViewPanThreshold {
+                textView.becomeFirstResponder()
+            }
+        default:
+            return
+        }
+    }
 }

@@ -132,6 +132,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="93g-Pu-mIB"/>
                                             <constraint firstItem="WDb-eB-pCn" firstAttribute="top" secondItem="7MP-dF-7QL" secondAttribute="top" constant="10" id="AAd-Fm-F79"/>
@@ -141,6 +142,9 @@
                                             <constraint firstItem="gIV-QG-m5e" firstAttribute="leading" secondItem="WDb-eB-pCn" secondAttribute="trailing" constant="16" id="mS1-5B-XL7"/>
                                             <constraint firstItem="gIV-QG-m5e" firstAttribute="centerY" secondItem="7MP-dF-7QL" secondAttribute="centerY" id="tAI-cM-qF6"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="ivs-u9-QJB" appends="YES" id="MXQ-UO-taw"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -183,6 +187,11 @@
                 <panGestureRecognizer minimumNumberOfTouches="1" id="LPe-JX-otF">
                     <connections>
                         <action selector="pullTabPanGesture:" destination="BYZ-38-t0r" id="SOh-Ko-wE9"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="ivs-u9-QJB" userLabel="Input View Pan Gesture Recognizer">
+                    <connections>
+                        <action selector="inputViewPanGesture:" destination="BYZ-38-t0r" id="EVJ-tZ-tnU"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>
