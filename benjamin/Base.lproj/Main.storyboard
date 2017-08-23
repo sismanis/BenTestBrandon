@@ -21,14 +21,27 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ef2-Ov-Ltd" userLabel="Leaderboard View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$532.51" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSD-ei-M2R">
+                                                <rect key="frame" x="14" y="30" width="155.5" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="6BQ-c2-QJs"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" red="0.41748672723770142" green="0.76097232103347778" blue="0.80817347764968872" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="can-1s-G5L"/>
+                                            <constraint firstItem="TSD-ei-M2R" firstAttribute="top" secondItem="ef2-Ov-Ltd" secondAttribute="top" constant="30" id="D1h-c6-H8M"/>
+                                            <constraint firstItem="TSD-ei-M2R" firstAttribute="leading" secondItem="ef2-Ov-Ltd" secondAttribute="leading" constant="14" id="Xah-3C-qsU"/>
+                                            <constraint firstAttribute="height" constant="150" id="can-1s-G5L"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="27D-xB-Xnw" userLabel="Chat View">
-                                        <rect key="frame" x="0.0" y="100" width="375" height="517"/>
+                                        <rect key="frame" x="0.0" y="150" width="375" height="467"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat-header" translatesAutoresizingMaskIntoConstraints="NO" id="nnB-hU-g63">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="10"/>
@@ -37,7 +50,7 @@
                                                 </constraints>
                                             </imageView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sbI-yh-q4o" userLabel="Chat Table View">
-                                                <rect key="frame" x="0.0" y="10" width="375" height="507"/>
+                                                <rect key="frame" x="0.0" y="10" width="375" height="457"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="b9F-D2-ZKG">
@@ -122,6 +135,7 @@
                         <outlet property="chatStackView" destination="667-8D-oWr" id="S1N-gA-d5M"/>
                         <outlet property="chatTableView" destination="sbI-yh-q4o" id="5FI-DQ-vNh"/>
                         <outlet property="leaderboardView" destination="ef2-Ov-Ltd" id="NWP-Nl-srl"/>
+                        <outlet property="leaderboardViewHeightConstraint" destination="can-1s-G5L" id="GJV-RO-CZf"/>
                         <outlet property="sendButton" destination="gIV-QG-m5e" id="4Yy-gB-NfL"/>
                         <outlet property="textView" destination="WDb-eB-pCn" id="rsc-zo-oA7"/>
                     </connections>

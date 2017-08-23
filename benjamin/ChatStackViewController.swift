@@ -13,6 +13,8 @@ class ChatStackViewController: UIViewController, UITextViewDelegate {
     
     struct Constants {
         static let placeholderText = "Type a message..."
+        static let leaderboardViewMinimumHeight: CGFloat = 40.0
+        static let leaderboardViewPreviewHeight: CGFloat = 150.0
     }
     
     @IBOutlet weak var chatStackView: UIStackView!
@@ -23,6 +25,7 @@ class ChatStackViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var sendButton: UIButton!
     
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var leaderboardViewHeightConstraint: NSLayoutConstraint!
     
     let chatTableViewController: ChatTableViewController
     
@@ -80,8 +83,10 @@ class ChatStackViewController: UIViewController, UITextViewDelegate {
         let animationCurve = UIViewAnimationOptions.curveEaseInOut
         if endFrame.origin.y >= UIScreen.main.bounds.size.height {
             bottomConstraint.constant = 0.0
+            leaderboardViewHeightConstraint.constant = Constants.leaderboardViewPreviewHeight
         } else {
             bottomConstraint.constant = endFrame.size.height
+            leaderboardViewHeightConstraint.constant = Constants.leaderboardViewMinimumHeight
         }
         UIView.animate(withDuration: duration, delay: 0.0, options: animationCurve, animations: { self.view.layoutIfNeeded() }, completion: nil)
     }
