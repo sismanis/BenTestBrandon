@@ -1,24 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Chat Stack View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ChatStackViewController" customModule="benjamin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="667-8D-oWr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ef2-Ov-Ltd" userLabel="Leaderboard View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                        <color key="backgroundColor" red="0.41748672723770142" green="0.76097232103347778" blue="0.80817347764968872" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="can-1s-G5L"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="27D-xB-Xnw" userLabel="Chat View">
+                                        <rect key="frame" x="0.0" y="100" width="375" height="517"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat-header" translatesAutoresizingMaskIntoConstraints="NO" id="nnB-hU-g63">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="10"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="10" id="v6v-ZZ-2fp"/>
+                                                </constraints>
+                                            </imageView>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sbI-yh-q4o" userLabel="Chat Table View">
+                                                <rect key="frame" x="0.0" y="10" width="375" height="507"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </tableView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="nnB-hU-g63" firstAttribute="leading" secondItem="27D-xB-Xnw" secondAttribute="leading" id="PBi-0T-MgH"/>
+                                            <constraint firstItem="nnB-hU-g63" firstAttribute="top" secondItem="27D-xB-Xnw" secondAttribute="top" id="W75-aw-Q6I"/>
+                                            <constraint firstAttribute="bottom" secondItem="sbI-yh-q4o" secondAttribute="bottom" id="WUR-O8-91p"/>
+                                            <constraint firstAttribute="trailing" secondItem="nnB-hU-g63" secondAttribute="trailing" id="WwW-ZR-4Hb"/>
+                                            <constraint firstItem="sbI-yh-q4o" firstAttribute="top" secondItem="nnB-hU-g63" secondAttribute="bottom" id="XTi-vS-uOj"/>
+                                            <constraint firstItem="sbI-yh-q4o" firstAttribute="leading" secondItem="27D-xB-Xnw" secondAttribute="leading" id="lKC-ph-44o"/>
+                                            <constraint firstAttribute="trailing" secondItem="sbI-yh-q4o" secondAttribute="trailing" id="r1p-jo-Z4U"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7MP-dF-7QL" userLabel="Text Input View">
+                                        <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type a message..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="thF-p9-0Yp">
+                                                <rect key="frame" x="15" y="16.5" width="291" height="17"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIV-QG-m5e">
+                                                <rect key="frame" x="317" y="10" width="40" height="30"/>
+                                                <state key="normal" title="SEND">
+                                                    <color key="titleColor" red="0.74451505829015541" green="0.74451505829015541" blue="0.74451505829015541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="93g-Pu-mIB"/>
+                                            <constraint firstAttribute="trailing" secondItem="gIV-QG-m5e" secondAttribute="trailing" constant="18" id="Ma8-iy-A8R"/>
+                                            <constraint firstItem="thF-p9-0Yp" firstAttribute="leading" secondItem="7MP-dF-7QL" secondAttribute="leading" constant="15" id="adT-JU-RTC"/>
+                                            <constraint firstItem="gIV-QG-m5e" firstAttribute="leading" secondItem="thF-p9-0Yp" secondAttribute="trailing" constant="11" id="jaA-S2-Zv4"/>
+                                            <constraint firstItem="gIV-QG-m5e" firstAttribute="centerY" secondItem="7MP-dF-7QL" secondAttribute="centerY" id="tAI-cM-qF6"/>
+                                            <constraint firstItem="thF-p9-0Yp" firstAttribute="centerY" secondItem="7MP-dF-7QL" secondAttribute="centerY" id="tOK-Fl-VLC"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="27D-xB-Xnw" firstAttribute="leading" secondItem="667-8D-oWr" secondAttribute="leading" id="08V-E3-Zod"/>
+                                    <constraint firstItem="ef2-Ov-Ltd" firstAttribute="leading" secondItem="667-8D-oWr" secondAttribute="leading" id="28F-Zl-B0A"/>
+                                    <constraint firstAttribute="trailing" secondItem="27D-xB-Xnw" secondAttribute="trailing" id="HXF-2c-5Wm"/>
+                                    <constraint firstAttribute="bottom" secondItem="7MP-dF-7QL" secondAttribute="bottom" id="RLX-Io-K3c"/>
+                                    <constraint firstItem="27D-xB-Xnw" firstAttribute="top" secondItem="ef2-Ov-Ltd" secondAttribute="bottom" id="aZ9-Dr-jIF"/>
+                                    <constraint firstItem="ef2-Ov-Ltd" firstAttribute="top" secondItem="667-8D-oWr" secondAttribute="top" id="flj-yr-ofq"/>
+                                    <constraint firstItem="7MP-dF-7QL" firstAttribute="top" secondItem="27D-xB-Xnw" secondAttribute="bottom" id="rUL-6w-Xhu"/>
+                                    <constraint firstAttribute="trailing" secondItem="7MP-dF-7QL" secondAttribute="trailing" id="uPC-pY-Vw1"/>
+                                    <constraint firstItem="7MP-dF-7QL" firstAttribute="leading" secondItem="667-8D-oWr" secondAttribute="leading" id="xVk-Ro-paE"/>
+                                    <constraint firstAttribute="trailing" secondItem="ef2-Ov-Ltd" secondAttribute="trailing" id="zcb-4X-iuj"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="667-8D-oWr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1ZA-hG-BiE"/>
+                            <constraint firstItem="667-8D-oWr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-20" id="MEj-pz-Vfy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="667-8D-oWr" secondAttribute="bottom" id="ZVK-Ka-CfI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="667-8D-oWr" secondAttribute="trailing" id="mgJ-hm-q3N"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="chatStackView" destination="667-8D-oWr" id="S1N-gA-d5M"/>
+                        <outlet property="chatTableView" destination="sbI-yh-q4o" id="5FI-DQ-vNh"/>
+                        <outlet property="leaderboardView" destination="ef2-Ov-Ltd" id="NWP-Nl-srl"/>
+                        <outlet property="textInputView" destination="7MP-dF-7QL" id="vzY-Mm-W85"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-82.400000000000006" y="127.28635682158921"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="chat-header" width="187" height="5"/>
+    </resources>
 </document>
