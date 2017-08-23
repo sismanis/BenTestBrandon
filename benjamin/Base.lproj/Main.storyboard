@@ -45,11 +45,15 @@
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="7i8-4J-C9X"/>
                                                     <constraint firstItem="pTS-QC-GvU" firstAttribute="centerX" secondItem="aMP-Vi-vWu" secondAttribute="centerX" id="oHX-G9-Xgf"/>
                                                     <constraint firstItem="pTS-QC-GvU" firstAttribute="centerY" secondItem="aMP-Vi-vWu" secondAttribute="centerY" id="q1C-ZF-Tbg"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="LPe-JX-otF" appends="YES" id="IZc-2u-a1G"/>
+                                                </connections>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.41748672723770142" green="0.76097232103347778" blue="0.80817347764968872" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -169,12 +173,18 @@
                         <outlet property="chatTableView" destination="sbI-yh-q4o" id="5FI-DQ-vNh"/>
                         <outlet property="leaderboardView" destination="ef2-Ov-Ltd" id="NWP-Nl-srl"/>
                         <outlet property="leaderboardViewHeightConstraint" destination="can-1s-G5L" id="GJV-RO-CZf"/>
+                        <outlet property="pullTabGestureRecognizer" destination="LPe-JX-otF" id="Pyz-yR-s0E"/>
                         <outlet property="pullTabView" destination="aMP-Vi-vWu" id="FeF-P2-zEw"/>
                         <outlet property="sendButton" destination="gIV-QG-m5e" id="4Yy-gB-NfL"/>
                         <outlet property="textView" destination="WDb-eB-pCn" id="rsc-zo-oA7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="LPe-JX-otF">
+                    <connections>
+                        <action selector="pullTabPanGesture:" destination="BYZ-38-t0r" id="SOh-Ko-wE9"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-82.400000000000006" y="127.28635682158921"/>
         </scene>

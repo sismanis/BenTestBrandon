@@ -17,6 +17,8 @@ class ChatStackViewController: UIViewController, UITextViewDelegate {
         static let leaderboardViewPreviewHeight: CGFloat = 150.0
         static let inputViewBorderWidth = 1
         static let pullTabViewCornerRadius: CGFloat = 20.0
+        static let pullTabPanThreshold: CGFloat = 50.0
+        static let panAnimationInterval = TimeInterval(0.25)
     }
     
     @IBOutlet weak var chatStackView: UIStackView!
@@ -27,10 +29,13 @@ class ChatStackViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var pullTabView: UIView!
     
+    @IBOutlet var pullTabGestureRecognizer: UIPanGestureRecognizer!
+    
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var leaderboardViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet var leaderboardViewHeightConstraint: NSLayoutConstraint!
     
     let chatTableViewController: ChatTableViewController
+    var chatViewIsHidden = false
     
     required init?(coder aDecoder: NSCoder) {
         chatTableViewController = ChatTableViewController(messages: ["Teach me about Bitcoin"])
@@ -49,6 +54,7 @@ class ChatStackViewController: UIViewController, UITextViewDelegate {
         textView.textColor = .lightGray
         textView.text = Constants.placeholderText
         textView.delegate = self
+        textView.resignFirstResponder()
         
         sendButton.isEnabled = false
         sendButton.setTitleColor(.lightGray, for: .disabled)
@@ -105,6 +111,67 @@ class ChatStackViewController: UIViewController, UITextViewDelegate {
             bottomConstraint.constant = endFrame.size.height
             leaderboardViewHeightConstraint.constant = Constants.leaderboardViewMinimumHeight
         }
-        UIView.animate(withDuration: duration, delay: 0.0, options: animationCurve, animations: { self.view.layoutIfNeeded() }, completion: nil)
+        UIView.animate(withDuration: duration,
+                       delay: 0.0,
+                       options: animationCurve,
+                       animations: { [weak self] in
+                            self?.view.layoutIfNeeded()
+                        },
+                       completion: nil)
     }
+    
+    // MARK: pullTabGestureRecognizer
+    
+    func configurePullTabGestureRecognizer() {
+        pullTabGestureRecognizer.minimumNumberOfTouches = 1
+        pullTabGestureRecognizer.maximumNumberOfTouches = 1
+    }
+    
+    @IBAction func pullTabPanGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
+        let pullTabView = gestureRecognizer.view?.superview
+        let yTranslation = gestureRecognizer.translation(in: pullTabView).y
+        let chatViewHideThreshold = Constants.leaderboardViewPreviewHeight + Constants.pullTabPanThreshold
+        let chatViewExpandThreshold = Constants.leaderboardViewPreviewHeight - Constants.pullTabPanThreshold
+        let leaderboardViewMaxHeight = view.bounds.height - chatInputView.bounds.height
+        
+        switch gestureRecognizer.state {
+        case .began:
+            if leaderboardViewHeightConstraint.constant > Constants.leaderboardViewPreviewHeight {
+                chatViewIsHidden = true
+            } else if leaderboardViewHeightConstraint.constant <= Constants.leaderboardViewPreviewHeight {
+                chatViewIsHidden = false
+            }
+            fallthrough
+        case .changed:
+            leaderboardViewHeightConstraint.constant += yTranslation
+            gestureRecognizer.setTranslation(.zero, in: pullTabView)
+        case .ended:
+            if leaderboardViewHeightConstraint.constant < chatViewHideThreshold &&
+                leaderboardViewHeightConstraint.constant > chatViewExpandThreshold {
+                // Tab was not pulled far enough from the middle state to expand or hide the chat view,
+                // so reset it to the middle state
+                textView.resignFirstResponder()
+                leaderboardViewHeightConstraint.constant = Constants.leaderboardViewPreviewHeight
+            }
+            
+            if leaderboardViewHeightConstraint.constant > chatViewHideThreshold && !chatViewIsHidden {
+                // Expand leaderboard view to max height and hide keyboard
+                textView.resignFirstResponder()
+                leaderboardViewHeightConstraint.constant = leaderboardViewMaxHeight
+            } else if leaderboardViewHeightConstraint.constant < chatViewExpandThreshold {
+                // Hide leaderboard view
+                leaderboardViewHeightConstraint.constant = Constants.leaderboardViewMinimumHeight
+            } else if leaderboardViewHeightConstraint.constant < leaderboardViewMaxHeight - Constants.pullTabPanThreshold {
+                // If chat view was hidden and the tab was pulled up past the pan threshold,
+                // expand the chat view
+                leaderboardViewHeightConstraint.constant = Constants.leaderboardViewPreviewHeight
+            }
+            UIView.animate(withDuration: Constants.panAnimationInterval) { [weak self] in
+                self?.view.layoutIfNeeded()
+            }
+        default:
+            return
+        }
+    }
+    
 }
