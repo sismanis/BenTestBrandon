@@ -13,7 +13,7 @@ class ChatTableViewController: UITableViewController {
     
     struct Constants {
         static let cellReuseIdentifier = "ChatTableViewCell"
-        static let chatBubbleCornerRadius = 10.0
+        static let chatBubbleCornerRadius: CGFloat = 10.0
     }
     
     var messages: [String]
@@ -31,7 +31,9 @@ class ChatTableViewController: UITableViewController {
     
     func insertMessage(message: String) {
         self.messages.append(message)
-        tableView.insertRows(at: [IndexPath.init(row: messages.count - 1, section: 0)], with: .fade)
+        let indexPath = IndexPath.init(row: messages.count - 1, section: 0)
+        tableView.insertRows(at: [indexPath], with: .fade)
+        tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
