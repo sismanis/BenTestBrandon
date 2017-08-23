@@ -70,6 +70,9 @@
                                                 <state key="normal" title="SEND">
                                                     <color key="titleColor" red="0.33414733409881592" green="0.60798132419586182" blue="0.64657413959503174" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="sendButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QT2-LW-Pkz"/>
+                                                </connections>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type a message..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WDb-eB-pCn">
                                                 <rect key="frame" x="14" y="10" width="287" height="30"/>

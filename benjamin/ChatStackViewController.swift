@@ -9,12 +9,10 @@
 import Foundation
 import UIKit
 
-class ChatStackViewController: UIViewController, UITableViewDataSource, UITextViewDelegate {
+class ChatStackViewController: UIViewController, UITextViewDelegate {
     
     struct Constants {
-        static let cellReuseIdentifier = "ChatTableViewCell"
         static let placeholderText = "Type a message..."
-        
     }
     
     @IBOutlet weak var chatStackView: UIStackView!
@@ -26,10 +24,10 @@ class ChatStackViewController: UIViewController, UITableViewDataSource, UITextVi
     
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
-    var messages: [String]
+    let chatTableViewController: ChatTableViewController
     
     required init?(coder aDecoder: NSCoder) {
-        self.messages = ["Teach me about Bitcoin"]
+        chatTableViewController = ChatTableViewController(messages: ["Teach me about Bitcoin"])
         super.init(coder: aDecoder)
     }
     
@@ -44,20 +42,11 @@ class ChatStackViewController: UIViewController, UITableViewDataSource, UITextVi
         textView.text = Constants.placeholderText
         sendButton.isEnabled = false
         sendButton.setTitleColor(.lightGray, for: .disabled)
-        chatTableView.dataSource = self
+        chatTableViewController.tableView = chatTableView
         textView.delegate = self
     }
     
-    // MARK: UITableViewDataSource
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messages.count
-    }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: Constants.cellReuseIdentifier)
-        cell.textLabel?.text = messages[indexPath.row]
-        return cell
-    }
     
     // MARK: UITextViewDelegate
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -73,6 +62,11 @@ class ChatStackViewController: UIViewController, UITableViewDataSource, UITextVi
         } else {
             sendButton.isEnabled = false
         }
+    }
+    
+    @IBAction func sendButtonPressed(_ sender: Any) {
+        chatTableViewController.insertMessage(message: textView.text)
+        textView.text = ""
     }
     
     // MARK: NSNotification
