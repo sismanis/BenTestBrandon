@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CA09CB261F4D1B67008D9630 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA09CB251F4D1B67008D9630 /* AppDelegate.swift */; };
-		CA09CB281F4D1B67008D9630 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA09CB271F4D1B67008D9630 /* ViewController.swift */; };
 		CA09CB2B1F4D1B67008D9630 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA09CB291F4D1B67008D9630 /* Main.storyboard */; };
 		CA09CB2D1F4D1B67008D9630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA09CB2C1F4D1B67008D9630 /* Assets.xcassets */; };
 		CA09CB301F4D1B67008D9630 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA09CB2E1F4D1B67008D9630 /* LaunchScreen.storyboard */; };
@@ -21,7 +20,6 @@
 /* Begin PBXFileReference section */
 		CA09CB221F4D1B66008D9630 /* benjamin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = benjamin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA09CB251F4D1B67008D9630 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CA09CB271F4D1B67008D9630 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CA09CB2A1F4D1B67008D9630 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA09CB2C1F4D1B67008D9630 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA09CB2F1F4D1B67008D9630 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,7 +61,6 @@
 			isa = PBXGroup;
 			children = (
 				CA09CB251F4D1B67008D9630 /* AppDelegate.swift */,
-				CA09CB271F4D1B67008D9630 /* ViewController.swift */,
 				CA09CB291F4D1B67008D9630 /* Main.storyboard */,
 				CA09CB2C1F4D1B67008D9630 /* Assets.xcassets */,
 				CA09CB2E1F4D1B67008D9630 /* LaunchScreen.storyboard */,
@@ -149,7 +146,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA09CB391F4D1EB7008D9630 /* ChatStackViewController.swift in Sources */,
-				CA09CB281F4D1B67008D9630 /* ViewController.swift in Sources */,
 				CA09CB451F4DD0F6008D9630 /* ChatTableViewCell.swift in Sources */,
 				CACFB7F61F4DDD6C0068478F /* UIView+RoundedCorners.swift in Sources */,
 				CA09CB261F4D1B67008D9630 /* AppDelegate.swift in Sources */,
