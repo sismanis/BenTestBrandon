@@ -80,6 +80,10 @@ class ChatStackViewController: UIViewController, UITextViewDelegate {
         textView.text = ""
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // MARK: UITextViewDelegate
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
